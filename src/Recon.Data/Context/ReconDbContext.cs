@@ -6,8 +6,8 @@ namespace Recon.Data.Context
 {
     public class ReconDbContext : DbContext
     {
-        public virtual DbSet<LookupCategory> LookupCategories { get; set; }
-        public virtual DbSet<LookUp> LookUps { get; set; }
+        public virtual DbSet<Provider> Providers { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
 
         public ReconDbContext()
         {
@@ -21,18 +21,8 @@ namespace Recon.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .ApplyConfiguration(new LookUpCategoryEntityConfiguration())
-                .ApplyConfiguration(new LookUpEntityConfiguration());
-
-
-            AddLookUpCategories(modelBuilder);
-        }
-        
-        private static void AddLookUpCategories(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<LookupCategory>().HasData(
-                new LookupCategory { Id = 1, Name = "Provider" },
-                new LookupCategory { Id = 2, Name = "Product" });
-        }
+                .ApplyConfiguration(new ProviderEntityConfiguration())
+                .ApplyConfiguration(new ProductEntityConfiguration());          
+        }              
     }
 }

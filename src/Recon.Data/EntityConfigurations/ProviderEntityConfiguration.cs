@@ -4,16 +4,16 @@ using Recon.Data.Models.Master;
 
 namespace Recon.Data.EntityConfigurations
 {
-    public class LookUpCategoryEntityConfiguration : IEntityTypeConfiguration<LookupCategory>
+    public class ProviderEntityConfiguration : IEntityTypeConfiguration<Provider>
     {
-        public void Configure(EntityTypeBuilder<LookupCategory> builder)
+        public void Configure(EntityTypeBuilder<Provider> builder)
         {
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name).IsRequired();
 
-            builder.HasMany(e => e.LookUps)
-               .WithOne(e => e.LookUpCategory);
+            builder.HasMany(e => e.Products)
+               .WithOne(e => e.Provider);
         }
     }
 }

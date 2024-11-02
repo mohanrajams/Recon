@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Recon.Api\Recon.Api.csproj" />
     <ProjectReference Include="..\Recon.Data\Recon.Data.csproj" />
   </ItemGroup>
 
